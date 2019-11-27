@@ -4,8 +4,8 @@ from PyQt5.QtCore import Qt, QBasicTimer, pyqtSignal
 from PyQt5.QtGui import QPainter, QColor
 
 from tetris_model import gameBoardData, gameShapeSpecs, BoardData
-from tetris_ai import ObjChooseAction
-# ObjChooseAction = None
+from tetris_ai import choose_action
+# choose_action = None
 class gameTetris(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -83,8 +83,8 @@ class gameTetris(QMainWindow):
 
     def timerEvent(self, event):
         if event.timerId() == self.timer.timerId():
-            if ObjChooseAction and not self.nextMove:
-                self.nextMove = ObjChooseAction.nextMove()
+            if choose_action and not self.nextMove:
+                self.nextMove = choose_action.nextMove()
             if self.nextMove:
                 k = 0
                 while gameBoardData.currentDirection != self.nextMove[0] and k < 4:

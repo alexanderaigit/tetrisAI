@@ -126,5 +126,5 @@ class choose_action(object):
         return score
 
 
-ObjChooseAction = choose_action()
+choose_action = choose_action()
 
